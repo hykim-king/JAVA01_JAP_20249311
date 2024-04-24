@@ -7,7 +7,7 @@ public class MemberDTO extends DTO {
 	//클래스        : 파스칼 케이스 ex)MemberDTO
 	//변수,메서드 : 카멜케이스    ex)memberId
 	
-	private String memberId; //회원아이디
+	private String memberId; //회원아이디(PK)
 	private String name;     //이름
 	private String passwd;   //비번
 	private String email;    //이메일
