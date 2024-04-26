@@ -102,10 +102,21 @@ public class MemberController implements PLog {
 		// 3.dao.doDelete(MemberDTO)
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("단건 삭제할 회원ID를 입력 하세요.>\n(james01)");
-		String inputData = scanner.nextLine().trim();
-		LOG.debug("inputData: " + inputData);
-		param.setMemberId(inputData);
+		String memberId="";
+		while (true) {
+			System.out.print("단건 삭제할 회원ID를 입력 하세요.(james01) : ");
+			memberId = scanner.nextLine().trim();
+
+			// 이름이 한글 또는 영어로만 구성되어 있는지 확인
+			if (memberId.length()<=2) {
+				System.out.println("회원ID를 입력해주세요.");
+			} else {
+				break; // 유효한 이름이면 반환
+			}
+		} // while 끝
+		
+		LOG.debug("inputData: " + memberId);
+		param.setMemberId(memberId);
 		LOG.debug("param: " + param);
 		
 		// dao호출
